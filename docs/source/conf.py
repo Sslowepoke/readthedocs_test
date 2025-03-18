@@ -3,30 +3,30 @@
 # For the full list of built-in configuration values, see the documentation:
 # https://www.sphinx-doc.org/en/master/usage/configuration.html
 
-# make sphinx autodoc find dependencies
+import os
 import sys
-from pathlib import Path
-
-sys.path.insert(0, str(Path('..', '..', 'src').resolve()))
+sys.path.insert(0, os.path.abspath('../../src'))  # Ensure Python modules are found
+os.environ['SPHINX_APIDOX_OPTIONS'] = 'members,show_inheritance'
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'readthedocs_test'
-copyright = '2025, viktor'
-author = 'viktor'
+project = 'ime'
+copyright = '2025, vikt'
+author = 'vikt'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = [
-    'sphinx_rtd_theme',
-    'sphinx.ext.autodoc',
-    'sphinx.ext.napoleon'
+    "myst_parser",  # For Markdown support
+    "sphinx.ext.autodoc",
+    "sphinx.ext.napoleon",  # For NumPy/Google-style docstrings
+    'sphinx_rtd_theme'
 ]
 
 templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
+exclude_patterns = []
 
 
 

@@ -1,3 +1,11 @@
+"""some module
+
+Returns
+-------
+int
+    success
+"""
+
 import numpy as np
 import requests
 import qai_hub as hub
